@@ -13,17 +13,18 @@ int main()
         scanf("%d", &arr[x]);
     }
 
-    int leftc[n];
+    int rightc[n];
+    rightc[0] = arr[n - 1]; // Right shift the last element to the first position
+
     for (int i = 1; i < n; i++)
     {
-        leftc[i - 1] = arr[i];
+        rightc[i] = arr[i - 1]; // Shift each element one position to the right
     }
-    leftc[n - 1] = arr[0];
 
-    printf("The left shift of the given number is:");
+    printf("The circular right shift of the given number is:");
     for (int j = 0; j < n; j++)
     {
-        printf("%d ", leftc[j]);
+        printf("%d ", rightc[j]);
     }
 
     return 0;

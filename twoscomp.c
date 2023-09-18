@@ -4,8 +4,8 @@
 void onesComplement(char binary[])
 {
     int length = strlen(binary);
-
-    for (int i = 0; i < length; i++)
+    int i;
+    for (i = 0; i < length; i++)
     {
         if (binary[i] == '0')
         {
@@ -15,7 +15,14 @@ void onesComplement(char binary[])
         {
             binary[i] = '0';
         }
+    };
+
+    binary[i] = binary[i] + 1;
+    if (binary[i] == 2)
+    {
+        binary[i] = 0;
     }
+    printf("%d", binary[i]);
 }
 
 int main()

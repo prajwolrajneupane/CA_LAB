@@ -1,27 +1,28 @@
-
-
-// dec to int
 #include <stdio.h>
-#include <string.h>
+
+int to_bin(int n)
+{
+    int binary = 0, digit, place = 1;
+
+    while (n > 0)
+    {
+        digit = n % 2;
+        binary += digit * place;
+        place *= 10;
+        n /= 2;
+    }
+
+    return binary;
+}
+
 int main()
 {
-    int number = 1010;
+    int n;
+    printf("Enter a decimal number: ");
+    scanf("%d", &n);
 
-    char stringNumber[20];
+    int binary = to_bin(n);
+    printf("%d in decimal = %d in binary", n, binary);
 
-    sprintf(stringNumber, "%d", number);
-    // printf("%s\n", stringNumber);
-    int length = strlen(stringNumber);
-    int arr[100];
-
-    // printf("%d",length);
-    int i;
-    int anumber = 0;
-    for (i = 0; i < length; i++)
-    {
-        arr[i] = 1;
-        anumber = anumber * 10 + arr[i];
-    }
-    printf("%d", anumber - number);
     return 0;
 }
